@@ -85,6 +85,7 @@ const DashboardLayout = ({ queryClient }) => {
           <BigSidebar />
           <div>
             <Navbar />
+            <Outlet />
             {/* <div className="dashboard-page">
               {isPageLoading ? <Loading /> : <Outlet context={{ user }} />}
             </div> */}

@@ -147,7 +147,9 @@ h5 {
   font-size: clamp(1rem, 2vw, 2rem);
 }
  */
-
+.flex {
+  display: flex;
+}
 .text {
   margin-bottom: 1.5rem;
   max-width: 40em;

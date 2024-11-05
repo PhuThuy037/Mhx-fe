@@ -6,6 +6,7 @@ import {
   // Register,
   // Login,
   DashboardLayout,
+  Events,
   // Error,
   // AddJob,
   // Stats,
@@ -19,6 +20,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <DashboardLayout />,
+    children: [
+      {
+        path: "all",
+        element: <Events />,
+      },
+    ],
   },
 ]);
 

@@ -1,80 +1,67 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wrapper = styled.article`
-  background: var(--background-secondary-color);
-  border-radius: var(--border-radius);
-  display: grid;
-  grid-template-rows: 1fr auto;
-  box-shadow: var(--shadow-2);
-  header {
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--grey-100);
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-  }
-  .main-icon {
-    width: 60px;
-    height: 60px;
-    display: grid;
-    place-items: center;
-    background: var(--primary-500);
-    border-radius: var(--border-radius);
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-right: 2rem;
-  }
-  .info {
-    h5 {
-      margin-bottom: 0.5rem;
-    }
-    p {
-      margin: 0;
-      text-transform: capitalize;
-      letter-spacing: var(--letter-spacing);
-      color: var(--text-secondary-color);
-    }
-  }
-  .content {
-    padding: 1rem 1.5rem;
-  }
-  .content-center {
-    display: grid;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    grid-template-columns: 1fr;
-    row-gap: 1.5rem;
-    align-items: center;
-    @media (min-width: 576px) {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  .status {
-    border-radius: var(--border-radius);
-    text-transform: capitalize;
-    letter-spacing: var(--letter-spacing);
+  margin-left: 1rem;
+
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  border: 2px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 5px;
+  h3 {
     text-align: center;
-    width: 100px;
-    height: 30px;
-    display: grid;
-    align-items: center;
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
   }
-  .actions {
+  .img-container {
+    position: relative;
+    flex-shrink: 0; /* Đảm bảo ảnh không bị co lại */
+    width: 7rem;
+    height: 100%;
+
+    /* Để ảnh chiếm toàn bộ chiều cao */
+  }
+
+  .img-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .deadline-text {
+    line-height: 2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: white; /* Màu chữ */
+    background-color: red; /* Nền mờ để dễ đọc */
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    border: 1px solid red; /* Viền đỏ xung quanh chữ */
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .describe {
+    max-width: 400px;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .footer {
     margin-top: 1rem;
-    display: flex;
-    align-items: center;
-  }
-  .edit-btn,
-  .delete-btn {
-    height: 30px;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-  }
-  .edit-btn {
-    margin-right: 0.5rem;
+    justify-content: space-between;
   }
 `;
 
