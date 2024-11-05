@@ -7,7 +7,6 @@ const AllEventContext = createContext();
 const Events = () => {
   return (
     <AllEventContext.Provider value={mockData}>
-      {console.log("Hello")}
       <EventContainer />
     </AllEventContext.Provider>
   );

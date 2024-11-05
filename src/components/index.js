@@ -13,3 +13,4 @@ export { default as Navbar } from "./Navbar";
 export { default as Loading } from "./Loading";
 export { default as Event } from "./Event";
 export { default as EventContainer } from "./EventContainer";
+export { default as CommunityContainer } from "./CommunityContainer";

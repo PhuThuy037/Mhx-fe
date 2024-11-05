@@ -7,6 +7,7 @@ import {
   // Login,
   DashboardLayout,
   Events,
+  EventsCommunity,
   // Error,
   // AddJob,
   // Stats,
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "all",
         element: <Events />,
+      },
+      {
+        path: "list-com",
+        element: <EventsCommunity />,
       },
     ],
   },

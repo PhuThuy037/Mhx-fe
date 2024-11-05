@@ -6,7 +6,6 @@ const EventContainer = () => {
   const events = useAllEventContext();
   return (
     <Wrapper>
-      {console.log("Hello")}
       <div className="jobs">
         {events.map((event) => (
           <Event key={event._id} {...event} />

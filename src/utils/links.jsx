@@ -14,7 +14,7 @@ const links = [
   },
   {
     text: "Student Event List",
-    path: "all-jobs",
+    path: "http://localhost:5173/all",
     icon: <MdQueryStats />,
   },
 
