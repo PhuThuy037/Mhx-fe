@@ -7,6 +7,7 @@ const data = [
     location: "Nha Be City",
     date: "3/3/3",
     dateline: "6/6/6",
+    number: "10",
   },
   {
     _id: "2",
@@ -17,6 +18,7 @@ const data = [
     location: "Thu Duc City",
     date: "3/3/3",
     dateline: "6/6/6",
+    number: "10",
   },
   {
     _id: "3",
@@ -27,6 +29,7 @@ const data = [
     location: "Thu Duc City",
     date: "3/3/3",
     dateline: "6/6/6",
+    number: "10",
   },
   {
     _id: "4",
@@ -37,6 +40,7 @@ const data = [
     location: "Thu Duc City",
     date: "3/3/3",
     dateline: "6/6/6",
+    number: "10",
   },
 ];
 export default data;

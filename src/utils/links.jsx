@@ -19,8 +19,8 @@ const links = [
   },
 
   {
-    text: "profile",
-    path: "profile",
+    text: "Community",
+    path: "http://localhost:5173/add-event",
     icon: <ImProfile />,
   },
   {

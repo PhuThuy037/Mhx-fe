@@ -9,7 +9,7 @@ import {
   Events,
   EventsCommunity,
   // Error,
-  // AddJob,
+  AddEvent,
   // Stats,
   // AllJobs,
   // Profile,
@@ -29,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "list-com",
         element: <EventsCommunity />,
+      },
+      {
+        path: "add-event",
+        element: <AddEvent />,
       },
     ],
   },
