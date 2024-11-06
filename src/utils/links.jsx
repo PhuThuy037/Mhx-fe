@@ -25,7 +25,7 @@ const links = [
   },
   {
     text: "admin",
-    path: "admin",
+    path: "http://localhost:5173/list-com",
     icon: <MdAdminPanelSettings />,
   },
 ];
