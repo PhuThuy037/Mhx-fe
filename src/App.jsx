@@ -1,5 +1,6 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   HomeLayout,
   Landing,
@@ -10,13 +11,27 @@ import {
   EventsCommunity,
   Error,
   AddEvent,
+  Logout,
   // Stats,
   // AllJobs,
   // Profile,
   // Admin,
   // EditJob,
 } from "./pages";
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+    },
+  },
+});
+import { action as logoutAction } from "./pages/action";
 import { action as loginAction } from "./pages/Login";
+import { action as registerAction } from "./pages/Register";
+import { action as eventAction } from "./pages/AddEvent";
+// import { action as logoutAction } from "./pages/Logout";
+
+// import { loader as dashboardLoader } from "./pages/DashboardLayout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,37 +45,48 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
-        // action: registerAction,
+        action: registerAction,
       },
       {
         path: "login",
         element: <Login />,
-        action: loginAction,
+        action: loginAction(queryClient),
       },
     ],
   },
   {
-    path: "/",
-    element: <DashboardLayout />,
+    path: "dashboard",
+    element: <DashboardLayout queryClient={queryClient} />,
+    // loader: dashboardLoader(queryClient),
     children: [
-      {
-        path: "all",
-        element: <Events />,
-      },
-      {
-        path: "list-com",
-        element: <EventsCommunity />,
-      },
       {
         path: "add-event",
         element: <AddEvent />,
+        action: eventAction(queryClient),
+      },
+      {
+        path: "all-by-university",
+        element: <Events />,
+      },
+      {
+        path: "event-commnunity",
+        element: <EventsCommunity />,
+      },
+      {
+        path: "logout", // Route logout
+        element: <Logout />,
+        action: logoutAction(queryClient),
       },
     ],
   },
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 };
 
 export default App;

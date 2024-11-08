@@ -1,46 +1,58 @@
 import React from "react";
-import { Link, Form } from "react-router-dom";
+import { FaLocationArrow, FaCalendarAlt, FaUserFriends } from "react-icons/fa";
 import Wrapper from "../assets/wrappers/Community";
-import JobInfo from "./JobInfo";
-import {
-  FaLocationArrow,
-  FaBriefcase,
-  FaCalendarAlt,
-  FaUserFriends,
-} from "react-icons/fa";
+import customFetch from "../utils/customFetch"; // Giả sử bạn có customFetch
+import { toast } from "react-toastify";
+
 const Community = ({
-  _id,
-  title,
-  describe,
+  eventName,
+  description,
+  startTime,
+  endTime,
+  status,
+  numberOfPeople,
+  universityName,
   location,
-  date,
-  dateline,
-  number,
+  id,
 }) => {
+  const handleAccept = async () => {
+    try {
+      await customFetch.get(`/event/accept/${id}`);
+      toast.success("Sự kiện đã được duyệt thành công!");
+      // Nếu có state quản lý danh sách sự kiện, bạn có thể cập nhật lại UI hoặc invalidate query (nếu dùng React Query)
+    } catch (error) {
+      toast.error("Duyệt sự kiện thất bại!");
+      console.error(error);
+    }
+  };
+
   return (
     <Wrapper>
       <div className="project-card">
         <div className="project-header">
-          <h2 className="project-title">{title}</h2>
+          <h2 className="project-title">{eventName}</h2>
           <p className="project-status">{status || "Đang chờ duyệt"}</p>
         </div>
-        <p className="project-description">{describe}</p>
+
+        <p className="project-description">{description}</p>
         <div className="project-details">
           <p className="project-location">
             <FaLocationArrow /> Địa điểm: {location}
           </p>
           <p className="project-date">
-            <FaCalendarAlt /> Bắt đầu: {date}
+            <FaCalendarAlt /> Bắt đầu: {startTime}
           </p>
           <p className="project-date">
-            <FaCalendarAlt /> Kết thúc: {dateline}
+            <FaCalendarAlt /> Kết thúc: {endTime}
           </p>
           <p className="project-participants">
-            <FaUserFriends /> Số lượng tham gia: {number}
+            <FaUserFriends /> Số lượng tham gia: {numberOfPeople}
           </p>
         </div>
         <div className="project-actions">
-          <button className="btn approve-btn">Duyệt</button>
+          <button className="btn approve-btn" onClick={handleAccept}>
+            Duyệt
+          </button>
           <button className="btn edit-btn">Chỉnh sửa</button>
           <button className="btn reject-btn">Từ chối</button>
         </div>

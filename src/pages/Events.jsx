@@ -2,6 +2,8 @@ import React, { createContext, useContext } from "react";
 import { EventContainer } from "../components";
 import mockData from "../utils/mockData";
 
+
+
 const AllEventContext = createContext();
 
 const Events = () => {

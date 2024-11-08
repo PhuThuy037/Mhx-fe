@@ -1,22 +1,22 @@
 import React from "react";
 import Wrapper from "../assets/wrappers/Event";
 import { FaLocationArrow, FaCalendarAlt } from "react-icons/fa";
-
-const Event = ({ _id, title, img, describe, location, date, dateline }) => {
+import img from "../assets/images/avatar-1.jpg";
+const Event = ({ eventName, description, location, endTime, startTime }) => {
   return (
     <Wrapper>
       <div className="event-card">
         {/* Image Container */}
         <div className="img-container">
-          <img src={img} alt={title} className="event-image" />
-          <p className="deadline-text">{dateline || "Chưa có thời hạn"}</p>
+          <img src={img} alt={eventName} className="event-image" />
+          <p className="deadline-text">{endTime || "Chưa có thời hạn"}</p>
         </div>
 
         {/* Event Info */}
         <div className="event-info">
-          <h3 className="event-title">{title}</h3>
+          <h3 className="event-title">{eventName}</h3>
           <p className="event-description">
-            {describe ||
+            {description ||
               "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus enim veniam ea quam"}
           </p>
 
@@ -26,7 +26,7 @@ const Event = ({ _id, title, img, describe, location, date, dateline }) => {
               <FaLocationArrow /> {location || "Chưa có địa điểm"}
             </p>
             <p className="event-date">
-              <FaCalendarAlt /> {date || "Chưa có ngày"}
+              <FaCalendarAlt /> {endTime || "Chưa có ngày"}
             </p>
           </div>
 

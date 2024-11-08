@@ -8,24 +8,24 @@ import { MdAdminPanelSettings } from "react-icons/md";
 
 const links = [
   {
-    text: "University",
-    path: ".",
-    icon: <FaWpforms />,
-  },
-  {
-    text: "Student Event List",
-    path: "http://localhost:5173/all",
+    text: "Student",
+    path: "all-by-university",
     icon: <MdQueryStats />,
   },
 
   {
-    text: "Community",
-    path: "http://localhost:5173/add-event",
+    text: "Add Event",
+    path: "add-event",
     icon: <ImProfile />,
   },
   {
-    text: "admin",
-    path: "http://localhost:5173/list-com",
+    text: "Admin",
+    path: "event-commnunity",
+    icon: <MdAdminPanelSettings />,
+  },
+  {
+    text: "Logout",
+    path: "logout",
     icon: <MdAdminPanelSettings />,
   },
 ];

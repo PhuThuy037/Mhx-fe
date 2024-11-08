@@ -2,14 +2,15 @@ import { Outlet, redirect, useNavigate, useNavigation } from "react-router-dom";
 import Wrapper from "../assets/wrappers/Dashboard";
 import { BigSidebar, Navbar, SmallSidebar, Loading } from "../components";
 import { createContext, useContext, useEffect, useState } from "react";
-// import customFetch from "../utils/customFetch";
+import customFetch from "../utils/customFetch";
 import { toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
+import Cookies from "js-cookie";
 // import { checkDefaultTheme } from "../App";
 // const userQuery = {
-//   queryKey: ["user"],
+//   queryKey: ["data"],
 //   queryFn: async () => {
-//     const { data } = await customFetch.get("/users/current-user");
+//     const { data } = await customFetch.get("/user/info");
 //     return data;
 //   },
 // };
@@ -25,12 +26,12 @@ import { useQuery } from "@tanstack/react-query";
 const DashboardContext = createContext();
 
 const DashboardLayout = ({ queryClient }) => {
-  // const { user } = useQuery(userQuery).data;
+  // const { data: user } = useQuery(userQuery).data;
   const navigate = useNavigate();
   const navigation = useNavigation();
   const isPageLoading = navigation.state === "loading";
   const [showSidebar, setShowSidebar] = useState(false);
-  // const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme());
+
   const [isAuthError, setIsAuthError] = useState(false);
 
   // const toggleDarkTheme = () => {
@@ -44,12 +45,14 @@ const DashboardLayout = ({ queryClient }) => {
     setShowSidebar(!showSidebar);
   };
 
-  const logoutUser = async () => {
-    navigate("/");
-    await customFetch.get("/auth/logout");
-    queryClient.invalidateQueries();
-    toast.success("Logging out...");
-  };
+  // const logoutUser = async () => {
+  //   navigate("/");
+  //   await customFetch.get("/user/logout");
+  //   Cookies.remove("token"); // Thay 'token' bằng tên cookie mà bạn đang lưu
+  //   Cookies.remove("refreshToken");
+  //   queryClient.invalidateQueries();
+  //   toast.success("Logging out...");
+  // };
 
   // customFetch.interceptors.response.use(
   //   (response) => {
@@ -86,9 +89,9 @@ const DashboardLayout = ({ queryClient }) => {
           <div>
             <Navbar />
             <Outlet />
-            {/* <div className="dashboard-page">
-              {isPageLoading ? <Loading /> : <Outlet context={{ user }} />}
-            </div> */}
+            <div className="dashboard-page">
+              {/* {isPageLoading ? <Loading /> : <Outlet context={{ user }} />} */}
+            </div>
           </div>
         </main>
       </Wrapper>
