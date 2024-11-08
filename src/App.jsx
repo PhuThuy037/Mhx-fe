@@ -1,14 +1,14 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {
-  // HomeLayout,
-  // Landing,
-  // Register,
-  // Login,
+  HomeLayout,
+  Landing,
+  Register,
+  Login,
   DashboardLayout,
   Events,
   EventsCommunity,
-  // Error,
+  Error,
   AddEvent,
   // Stats,
   // AllJobs,
@@ -16,8 +16,29 @@ import {
   // Admin,
   // EditJob,
 } from "./pages";
-
+import { action as loginAction } from "./pages/Login";
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomeLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        element: <Landing />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+        // action: registerAction,
+      },
+      {
+        path: "login",
+        element: <Login />,
+        action: loginAction,
+      },
+    ],
+  },
   {
     path: "/",
     element: <DashboardLayout />,
