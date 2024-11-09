@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         element: <Events />,
       },
       {
-        path: "event-commnunity",
+        index: true,
         element: <EventsCommunity />,
       },
       {

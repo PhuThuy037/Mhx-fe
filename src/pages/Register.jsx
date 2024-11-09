@@ -4,11 +4,12 @@ import { FormRow, FormRowSelect, Logo, SubmitBtn } from "../components";
 import customFetch from "../utils/customFetch";
 import { toast } from "react-toastify";
 import { USER_TYPE } from "../utils/constants";
+import { ToastContainer } from "react-toastify";
 export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   // Log toàn bộ dữ liệu form
-  
+
   try {
     await customFetch.post("/user/register", data);
     toast.success("Registration successful");

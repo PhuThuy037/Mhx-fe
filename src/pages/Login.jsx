@@ -8,14 +8,14 @@ export const action =
   (queryClient) =>
   async ({ request }) => {
     const formData = await request.formData();
-    console.log(formData);
-    Cookies.remove("token");
     const data = Object.fromEntries(formData);
 
     try {
       await customFetch.post("/user/login", data);
       queryClient.invalidateQueries();
-      toast.success("Login successful");
+      toast.success("Login successful", {
+        autoClose: 3000,
+      });
       return redirect("/dashboard");
     } catch (error) {
       toast.error(error?.response?.data?.msg);
