@@ -31,7 +31,15 @@ const Community = ({
       <div className="project-card">
         <div className="project-header">
           <h2 className="project-title">{eventName}</h2>
-          <p className="project-status">{status || "Đang chờ duyệt"}</p>
+          <p
+            className={
+              status == "Appcept"
+                ? "project-status appcet-color"
+                : "project-status"
+            }
+          >
+            {status || "Đang chờ duyệt"}
+          </p>
         </div>
 
         <p className="project-description">{description}</p>

@@ -100,5 +100,8 @@ const Wrapper = styled.div`
   .reject-btn:hover {
     background-color: #e53935;
   }
+  .appcet-color{
+    background-color: #2bbbad;
+  }
 `;
 export default Wrapper;
